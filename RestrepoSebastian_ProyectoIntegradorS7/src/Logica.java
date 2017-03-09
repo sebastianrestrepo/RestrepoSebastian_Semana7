@@ -5,7 +5,7 @@ public class Logica {
 	private PApplet app;
 	private String[] nombresIni, datosIni, color;
 	private Palabra p;
-	private int posX, posY,x;
+	private int posX, posY;
 
 	public Logica(PApplet app) {
 		this.app = app;
