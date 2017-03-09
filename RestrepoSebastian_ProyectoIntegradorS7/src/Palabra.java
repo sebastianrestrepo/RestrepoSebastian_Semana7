@@ -9,7 +9,7 @@ public class Palabra implements Comparable<Palabra>{
 	private int posX, posY;
 
 	public Palabra(PApplet app, String nombres, String apellidos, String cedula, int edad, int peso, int r, int g,
-			int b, int posX, int posY) {
+			int b, int posX) {
 		this.app = app;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
@@ -20,11 +20,11 @@ public class Palabra implements Comparable<Palabra>{
 		this.g = g;
 		this.b = b;
 		this.posX = posX;
-		this.posY = posY;
 		System.out.println(nombres + " " + apellidos + " " + cedula + " " + edad + " " + peso);
 	}
 
-	public void pintar() {
+	public void pintar(int posY) {
+		this.posY = posY;
 		app.fill(r, g, b);
 		app.text(nombres + " " + apellidos + " " + cedula + " " + edad + " " + peso, posX, posY);
 	}
@@ -32,7 +32,7 @@ public class Palabra implements Comparable<Palabra>{
 	@Override
 	public int compareTo(Palabra o) {
 		// TODO Auto-generated method stub
-		return nombres.compareTo(o.getNombres());
+		return getNombres().compareTo(o.getNombres());
 	}
 	
 	//Getters y setters
