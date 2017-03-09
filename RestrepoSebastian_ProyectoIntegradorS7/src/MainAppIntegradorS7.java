@@ -9,7 +9,7 @@ public class MainAppIntegradorS7 extends PApplet {
 	}
 
 	public void settings() {
-		size(500, 500);
+		size(450, 450);
 	}
 
 	public void setup() {
@@ -18,7 +18,11 @@ public class MainAppIntegradorS7 extends PApplet {
 
 	public void draw() {
 		background(0);
-		log.dividir();
+		log.pintar();
 	}
 
+	public void keyReleased() {
+		log.tecla();
+	}
+	
 }
