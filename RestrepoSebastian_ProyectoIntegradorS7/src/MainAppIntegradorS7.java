@@ -2,7 +2,7 @@ import processing.core.PApplet;
 
 public class MainAppIntegradorS7 extends PApplet {
 
-	private Logica log;
+	private Logica log, x;
 
 	public static void main(String[] args) {
 		PApplet.main("MainAppIntegradorS7");

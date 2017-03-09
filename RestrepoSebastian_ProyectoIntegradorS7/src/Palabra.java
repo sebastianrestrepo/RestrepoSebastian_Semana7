@@ -6,7 +6,7 @@ public class Palabra {
 	private String nombres, apellidos, cedula;
 	private int edad, peso;
 	private int r, g, b;
-	private int posX, posY;
+	private int posX, posY, x;
 
 	public Palabra(PApplet app, String nombres, String apellidos, String cedula, int edad, int peso, int r, int g,
 			int b) {
