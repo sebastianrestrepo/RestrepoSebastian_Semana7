@@ -6,14 +6,18 @@ public class Logica {
 	private PApplet app;
 	private String[] nombresIni, datosIni, color;
 	private ArrayList<Palabra> palabras;
-	private TreeSet<Palabra> palabrasUno;
+	private ArrayList<Palabra> palabrasUno;
+	private TreeSet<Palabra> palabrasDos;
+	private HashSet<Palabra> palabrasTres;
 	private int posX, posY;
 	private int pantalla;
 
 	public Logica(PApplet app) {
 		this.app = app;
 		palabras = new ArrayList<Palabra>();
-		palabrasUno = new TreeSet<Palabra>(new OrdenarPeso());
+		palabrasUno = new ArrayList<Palabra>();
+		palabrasDos = new TreeSet<Palabra>(new OrdenarEdad());
+		palabrasTres = new HashSet<Palabra>();
 		posX = 100;
 		posY = 100;
 		cargar();
@@ -54,6 +58,8 @@ public class Logica {
 			}
 			break;
 		case 1:
+			// Creación de las estructuras necesarias para ordenar y mostrar los
+			// elementos, utilizando el	orden natural de estos sin excluir repetidos.
 			Collections.sort(palabras);
 			app.fill(255);
 			app.text("ORDEN NATURAL", 100, 80);
@@ -61,30 +67,43 @@ public class Logica {
 				Palabra p = palabras.get(i);
 				p.pintar(posY + (i * 20));
 			}
-
-			// Creación de las estructuras necesarias para ordenar y mostrar los
-			// elementos, utilizando el
-			// orden natural de estos sin excluir repetidos.
-
 			break;
 		case 2:
-			Iterator<Palabra> it = palabrasUno.iterator();
+			// Creación de las estructuras necesarias para ordenar los elementos
+			// mostrados en forma
+			// ascendente según su peso, con un ordenamiento parcial sin excluir repetidos en peso.
+			Collections.sort(palabrasUno, new OrdenarPeso());
+			app.fill(255);
+			app.text("SEGÚN PESO (ASCENDENTE)", 100, 80);
+			for (int i = 0; i < palabrasUno.size(); i++) {
+				Palabra p = palabrasUno.get(i);
+				p.pintar(posY + (i * 20));
+			}
+			break;
+		case 3:
+			// Mostrar los elementos ordenados de acuerdo a la edad forma
+			// descendente sin mostrar elementos repetidos en edad.
+			app.fill(255);
+			app.text("SEGÚN EDAD SIN REPETIDOS (DESCENDENTE)", 100, 80);
+			Iterator<Palabra> it = palabrasDos.iterator();
 			int i = 0;
-			while(it.hasNext()){
+			while (it.hasNext()) {
 				Palabra p = it.next();
 				p.pintar(posY + (i * 20));
 				i++;
 			}
-			// Creación de las estructuras necesarias para ordenar los elementos
-			// mostrados en forma ascendente según su peso, con un ordenamiento parcial sin excluir repetidos en peso.
-			break;
-		case 3:
-			// Mostrar los elementos ordenados de acuerdo a la edad forma
-			// descendente sin mostrar
-			// elementos repetidos en edad.
 			break;
 		case 4:
 			// Mostrar los no ordenados sin repetidos (según la igualdad base).
+			app.fill(255);
+			app.text("NO ORDENADOS SIN REPETIDOS (SUMA COLOR)", 100, 80);
+			Iterator<Palabra> ite = palabrasTres.iterator();
+			int j = 0;
+			while (ite.hasNext()) {
+				Palabra p = ite.next();
+				p.pintar(posY + (j * 20));
+				j++;
+			}
 			break;
 		}
 		// FIN DEL MÉTODO PINTAR
@@ -101,11 +120,26 @@ public class Logica {
 			if (app.keyCode == '2') {
 				pantalla = 2;
 				palabrasUno.addAll(palabras);
-			    palabras.clear();
 			}
+			break;
+		case 2:
+			if (app.keyCode == '3') {
+				pantalla = 3;
+				palabrasDos.addAll(palabras);
+			}
+			break;
+		case 3:
+			if (app.keyCode == '4') {
+				pantalla = 4;
+				palabrasTres.addAll(palabras);
+			app.printArray(palabras);
+			System.out.println(palabrasUno);
+			System.out.println(palabrasDos);
+			System.out.println(palabrasTres);
 			break;
 		}
 		// FIN DEL MÉTODO TECLA
+	  }
 	}
 
 	// FINAL DE LA CLASE LÓGICA

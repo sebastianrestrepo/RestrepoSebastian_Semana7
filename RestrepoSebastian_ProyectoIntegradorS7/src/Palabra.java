@@ -7,6 +7,7 @@ public class Palabra implements Comparable<Palabra>{
 	private int edad, peso;
 	private int r, g, b;
 	private int posX, posY;
+	private int sumaColor;
 
 	public Palabra(PApplet app, String nombres, String apellidos, String cedula, int edad, int peso, int r, int g,
 			int b, int posX) {
@@ -24,6 +25,7 @@ public class Palabra implements Comparable<Palabra>{
 	}
 
 	public void pintar(int posY) {
+		sumaColor = r + g + b;
 		this.posY = posY;
 		app.fill(r, g, b);
 		app.text(nombres + " " + apellidos + " " + cedula + " " + edad + " " + peso, posX, posY);
@@ -35,9 +37,25 @@ public class Palabra implements Comparable<Palabra>{
 		return getNombres().compareTo(o.getNombres());
 	}
 	
+	public boolean equals(Palabra o){
+		return sumaColor == o.getSumaColor();
+	}
+	
+	public int hashCode(){
+		return sumaColor;
+	}
+	
 	//Getters y setters
 	public String getNombres() {
 		return nombres;
+	}
+
+	public int getSumaColor() {
+		return sumaColor;
+	}
+
+	public void setSumaColor(int sumaColor) {
+		this.sumaColor = sumaColor;
 	}
 
 	public void setNombres(String nombres) {
