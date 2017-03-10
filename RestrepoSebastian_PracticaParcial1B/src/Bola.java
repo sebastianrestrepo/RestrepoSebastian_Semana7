@@ -18,11 +18,11 @@ public class Bola {
 	}
 
 	public void pintar() {
-		app.strokeWeight(2);
+		app.strokeWeight(3);
 		app.stroke(linea);
 		app.fill(r, g, b);
-		app.textSize(30);
-		app.text("num", posX - 10, posY + 50);
+		app.textSize(12);
+		app.text(num, posX - 5, posY + (tam/2 + 17));
 		app.ellipse(posX, posY, tam, tam);
 	}
 
@@ -35,12 +35,12 @@ public class Bola {
 	public void pintarNum(int cx, int cy) {
 		app.noStroke();
 		app.textSize(30);
-		app.text("num", posX - 10, posY + 50);
+		app.text(num, posX - 10, posY + 50);
 		app.ellipse(cx, cy, tam, tam);
 	}
 
 	public void pintarLinea(int cx, int cy) {
-		app.strokeWeight(2);
+		app.strokeWeight(3);
 		app.stroke(linea);
 		app.noFill();
 		app.ellipse(cx, cy, tam, tam);
