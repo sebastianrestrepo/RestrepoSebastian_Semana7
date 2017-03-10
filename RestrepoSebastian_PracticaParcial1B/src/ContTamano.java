@@ -12,8 +12,8 @@ public class ContTamano extends Contenedor {
 		// TODO Auto-generated method stub
 		app.stroke(0);
 		app.noFill();
-		app.textSize(10);
-		app.text("T", posX, posY);
+		app.textSize(30);
+		app.text("T", posX-10, posY+10);
 		app.ellipse(posX, posY, tam, tam);
 	}
 

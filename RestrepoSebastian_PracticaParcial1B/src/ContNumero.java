@@ -12,8 +12,8 @@ public class ContNumero extends Contenedor {
 		// TODO Auto-generated method stub
 		app.stroke(0);
 		app.noFill();
-		app.textSize(10);
-		app.text("N", posX, posY);
+		app.textSize(30);
+		app.text("N", posX-10, posY+10);
 		app.ellipse(posX, posY, tam, tam);
 	}
 

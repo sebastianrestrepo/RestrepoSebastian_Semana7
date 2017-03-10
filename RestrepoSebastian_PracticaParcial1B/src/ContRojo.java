@@ -12,8 +12,8 @@ public class ContRojo extends Contenedor {
 		// TODO Auto-generated method stub
 		app.stroke(0);
 		app.noFill();
-		app.textSize(10);
-		app.text("U", posX, posY);
+		app.textSize(30);
+		app.text("U", posX-10, posY+10);
 		app.ellipse(posX, posY, tam, tam);
 	}
 

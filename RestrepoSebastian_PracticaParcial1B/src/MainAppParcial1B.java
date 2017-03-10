@@ -18,7 +18,20 @@ public class MainAppParcial1B extends PApplet {
 	}
 
 	public void draw() {
+		background(255);
+		log.pintar();
+	}
 
+	public void mousePressed() {
+		log.mousePressed();
+	}
+
+	public void mouseDragged() {
+		log.mouseDragged();
+	}
+
+	public void mouseReleased() {
+		log.mouseReleased();
 	}
 
 }
