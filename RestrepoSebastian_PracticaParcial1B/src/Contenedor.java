@@ -2,8 +2,8 @@ import processing.core.PApplet;
 
 public abstract class Contenedor {
 
-	private PApplet app;
-	private int posX, posY, tam;
+	protected PApplet app;
+	protected int posX, posY, tam;
 
 	public Contenedor(PApplet app, int posX, int posY, int tam) {
 		this.app = app;
