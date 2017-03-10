@@ -7,6 +7,7 @@ public class Logica {
 	private ArrayList<Contenedor> c;
 	private int cx, cy;
 	private Contenedor selector;
+	//private String [] 
 
 	public Logica(PApplet app) {
 		this.app = app;
