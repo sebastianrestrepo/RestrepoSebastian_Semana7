@@ -37,10 +37,13 @@ public class Palabra implements Comparable<Palabra>{
 		return getNombres().compareTo(o.getNombres());
 	}
 	
-	public boolean equals(Palabra o){
-		return sumaColor == o.getSumaColor();
+	@Override
+	public boolean equals(Object o){
+		Palabra p = (Palabra) o;
+		return sumaColor == p.getSumaColor();
 	}
 	
+	@Override
 	public int hashCode(){
 		return sumaColor;
 	}
